@@ -1,11 +1,19 @@
 function refreshWeather(response){
   let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+
+
   
   cityElement.innerHTML= response.data.city; 
+  descriptionElement.innerHTML = response.data.conditions. description;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%;
   temperatureElement.innerHTML = Math.round(temperature);
 }
 
+//console.log(response.data); to check where the variables are-> respone.data.comdition.description//
 
 
 function searchCity (city){
@@ -37,3 +45,4 @@ searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 
 searchCity("Jaen");
+//
